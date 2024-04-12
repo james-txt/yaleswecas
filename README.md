@@ -6,24 +6,25 @@ This project is a full-stack application that integrates with the PubMed API to 
 
 Clone the repository and install the dependencies in both the frontend and backend directories.
 
-\`\`\`bash
+```bash
 git clone https://github.com/james-txt/yaleswecas.git
 cd yaleswecas
-\`\`\`
+```
+
 
 For the backend:
 
-\`\`\`bash
+```bash
 cd backend
 pip install -r requirements.txt
-\`\`\`
+```
 
 For the frontend:
 
-\`\`\`bash
+```bash
 cd frontend
 npm install
-\`\`\`
+```
 
 ## Usage
 
@@ -36,11 +37,11 @@ The backend server is built with Flask. It has two endpoints:
 
 To start the server, run:
 
-\`\`\`bash
+```bash
 cd backend
 venv\Scripts\activate # Windows
 python main.py
-\`\`\`
+```
 
 The server will start on `http://localhost:5000`.
 
