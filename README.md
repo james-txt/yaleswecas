@@ -2,6 +2,8 @@
 
 This project is a full-stack application that integrates with the PubMed API to fetch and display publication data. It consists of a backend server built with Flask and a frontend server built with React.
 
+Link to Documentation: [Documentation](Documentation.md)
+
 ## Installation
 
 Clone the repository and install the dependencies in both the frontend and backend directories.
