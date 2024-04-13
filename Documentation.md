@@ -1,6 +1,6 @@
 # Documentation
 
-This documentation is a file that serves as a guide to understanding the thought process, design, implementation, and functionality of the project.
+This serves as a guide to understanding the thought process, design, implementation, and functionality of the applications.
 
 ## Flask Backend Server for PubMed Data
 
