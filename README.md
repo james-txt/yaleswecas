@@ -45,3 +45,16 @@ python main.py
 
 The server will start on `http://localhost:5000`.
 
+### Frontend Server
+
+The frontend server is built with React. It fetches the list of IDs from the backend when the page loads, and displays them as links. When you click on a link, it fetches and displays the details for that ID.
+
+To start the server, run:
+
+```bash
+cd frontend
+npm start
+```
+
+The server will start on `http://localhost:5173/`.
+

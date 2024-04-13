@@ -1,7 +1,7 @@
 import sys
-sys.path.append('..')  # Add the parent directory to the Python path
+sys.path.append('..')
 from main import main
-import pytest
+import pytest # type: ignore
 
 @pytest.fixture
 def client():
