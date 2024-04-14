@@ -4,11 +4,11 @@ This serves as a guide to understanding the thought process, design, implementat
 
 ## Flask Backend Server for PubMed Data
 
-1. **Importing necessary modules**:
-`Flask` is the web framework used to build the application
-`request` is used to handle incoming requests
-`CORS` is used to handle Cross-Origin Resource Sharing
-`requests` is used to make HTTP requests to the PubMed API
+1. **Importing necessary modules**: \
+`Flask` is the web framework used to build the application \
+`request` is used to handle incoming requests \
+`CORS` is used to handle Cross-Origin Resource Sharing \
+`requests` is used to make HTTP requests to the PubMed API \
 
 2. **Setting up the Flask application**: An instance of the Flask application is created and CORS is enabled on the application.
 
@@ -37,6 +37,6 @@ The `Home` component renders a list of links to the details page for each ID. Ea
 
 ### Details Component
 
-The `Details` component fetches the details for a specific ID from the backend server when it mounts or when the `id` parameter in the URL changes. It uses the `useParams` hook from `react-router-dom` to get the `id` parameter from the URL, and the `useEffect` and `useState` hooks from React to fetch the data and store it in the `details` state variable.
+The `Details` component fetches the details for a specific ID from the backend server, when it mounts or when the `id` parameter in the URL changes. It uses the `useParams` hook from `react-router-dom` to get the `id` parameter from the URL, and the `useEffect` and `useState` hooks from React to fetch the data and store it in the `details` state variable.
 
 The `Details` component renders the details for the ID if they have been fetched, or a loading message otherwise. It also renders a `Link` component that navigates back to the home page.
