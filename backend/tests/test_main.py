@@ -1,15 +1,29 @@
+import pytest # type: ignore
+from flask import Flask, json # type: ignore
 import sys
 sys.path.append('..')
-from main import main
-import pytest # type: ignore
+from main import main as flask_app
 
 @pytest.fixture
 def client():
-    main.config['TESTING'] = True
-    with main.test_client() as client:
+    flask_app.config['TESTING'] = True
+    with flask_app.test_client() as client:
         yield client
 
-def test_index(client):
-    response = client.get('/')
+def test_get_ids(client):
+    response = client.get('/get_ids')
     assert response.status_code == 200
-    assert b'Hello, World!' in response.data
+    data = json.loads(response.data)
+    assert 'idlist' in data
+    print(data)
+
+def test_get_details(client):
+    test_id = '38615309'
+    response = client.post('/get_details', json={'target_id': test_id})
+    assert response.status_code == 200
+    data = json.loads(response.data)
+    assert 'uid' in data
+    assert 'title' in data
+    assert 'authors' in data
+    assert 'pubdate' in data
+    print(data)
