@@ -57,7 +57,7 @@ Sets up the routing for the application. It uses the `BrowserRouter` component f
 
 - `Home` component test checks if component renders correctly.
 - `Details` component test checks if component renders correctly and if it fetches the correct data from the server.
-- `getDataFromServer` function test checks if the function fetches the correct data from the server.
+- `helper` service test checks if function `getDataFromServer` fetches the correct data from the server.
 
 The tests are ran using the following commands:
 
