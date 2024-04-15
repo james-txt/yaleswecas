@@ -1,35 +1,42 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@keyframes loading {
+  0% {
+    content: "Loading";
+  }
+  25% {
+    content: "Loading .";
+  }
+  50% {
+    content: "Loading ..";
+  }
+  75% {
+    content: "Loading ...";
+  }
+  100% {
+    content: "Loading";
+  }
 }
 
-#uid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.loading::after {
+  content: "Loading";
+  animation: loading 1.5s infinite;
 }
 
-#uid div {
-  margin: 10px 0;
+.card {
+  @apply border-2 border-slate-200 bg-slate-100 rounded-md shadow-stone-800 shadow-sm text-center p-4 m-4 mx-auto;
 }
 
+body {
+  @apply flex items-center justify-center min-w-full min-h-screen bg-turq text-slate-900;
+}
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  @apply font-medium text-slate-900 no-underline hover:text-slate-700 active:text-slate-900;
+}
+
+p {
+  @apply py-2 px-4;
 }

@@ -8,7 +8,6 @@ async function getDataFromServer(url) {
     return data;
 }
 
-
 function Home() {
     // useState hook to create a state variable for the IDs    
     const [ids, setIds] = useState([]);
@@ -26,13 +25,18 @@ function Home() {
 
     // Return a list of links to the details page for each ID
     return (
-        <div id="uid">
-            <h2>Choose your Publication by ID</h2>
-            {ids.map((id, index) => (
-                <div key={index}>
-                    <Link to={`/details/${id}`}>{id}</Link>
-                </div>
-            ))}
+        <div className="card flex flex-col items-center justify-center my-2">
+            <h2 className="text-2xl font-bold m-4">Choose your Publication by ID:</h2>
+            <hr className="w-11/12 mt-2 mb-4 border-slate-900" />
+            <div className="grid grid-cols-2 gap-2 w-11/12">
+                {ids.map((id, index) => (
+                    <Link to={`/details/${id}`} key={index}>
+                        <button className="py-2 px-12 rounded bg-slate-200 hover:bg-slate-50 active:bg-slate-400">
+                            <span className="font-medium">{id}</span>
+                        </button>
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 }
