@@ -28,15 +28,15 @@ function Home() {
         <div className="card flex flex-col items-center justify-center my-2">
             <h2 className="text-2xl font-bold m-4">Choose your Publication by ID:</h2>
             <hr className="w-11/12 mt-2 mb-4 border-slate-900" />
-            <div className="grid grid-cols-2 gap-2 w-11/12">
+            <ul className="grid grid-cols-2 gap-2 w-11/12">
                 {ids.map((id, index) => (
-                    <Link to={`/details/${id}`} key={index}>
-                        <button className="py-2 px-12 rounded bg-slate-200 hover:bg-slate-50 active:bg-slate-400">
-                            <span className="font-medium">{id}</span>
-                        </button>
-                    </Link>
+                    <li key={index}>
+                        <Link to={`/details/${id}`} className="inline-block py-2 px-12 rounded bg-slate-200 hover:bg-slate-50 active:bg-slate-400 font-medium">
+                            {id}
+                        </Link>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 }

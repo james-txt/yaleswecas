@@ -10,13 +10,15 @@ This serves as a guide to understanding the thought process, design, implementat
 - `CORS` is used to handle Cross-Origin Resource Sharing
 - `requests` is used to make HTTP requests to the PubMed API
 
-3. **Defining a helper function**: The `get_data_from_api` function is defined to make a GET request to a given URL and return the JSON response. The use of a helper function to interact with the API keeps the code DRY (Don't Repeat Yourself) and improves readability.
+3. **Defining a helper function**: `get_data_from_api` function is defined to make a GET request to a given URL and return the JSON response. The use of a helper function to interact with the API keeps the code DRY (Don't Repeat Yourself) and improves readability.
 
 4. **Defining the `/get_ids` route**: A GET request to the PubMed API to fetch the first 10 IDs related to the term "cancer". The IDs are extracted from the API response and returned in a dictionary.
 
 5. **Defining the `/get_details` route**: A POST request with a JSON body containing a `target_id`. It makes a GET request to the PubMed API to fetch the details of the publication with the given ID. The details are extracted from the API response and returned in a dictionary.
 
-6. **Running the application**: Finally, if the script is run directly (not imported as a module), the Flask application is run in debug mode.
+6. **Pytest**:`test_main.py` contains tests for the Flask application. The tests check the status code and response data for the `/get_ids` and `/get_details` routes.
+
+7. **Running the application**: Finally, if the script is run directly (not imported as a module), the Flask application is run in debug mode.
 
 ## React Frontend Server for PubMed Data
 

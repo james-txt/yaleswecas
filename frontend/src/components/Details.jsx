@@ -30,13 +30,28 @@ function Details() {
 
     // Return the details if they have been fetched, or a loading message otherwise
     return details ? (
-        <div className="card w-11/12 lg:w-4/5 xlg:w-3/4 flex flex-col items-center justify-center">
-            <p><strong>ID:</strong> {details.uid}</p>
-            <p><strong>Title:</strong> {details.title}</p>
-            <p><strong>Author List:</strong> {details.authors.join(', ')}</p>
-            <p><strong>Publication Date:</strong> {details.pubdate}</p>
-            <Link to="/" className="text-slate-800 hover:text-slate-600 font-medium py-1 px-4 rounded bg-slate-200 hover:bg-slate-50 active:bg-slate-400">Back</Link>
-        </div>
+        <dl className="card w-11/12 lg:w-4/5 xlg:w-3/4 flex flex-col items-center justify-center">
+            <div className="flex">
+                <dt className="font-bold detail flex-initial">ID:&nbsp;</dt>
+                <dd className="detail flex-initial">{details.uid}</dd>
+            </div>
+
+            <div className="flex">
+                <dt className="font-bold detail flex-initial">Title:&nbsp;</dt>
+                <dd className="detail flex-initial">{details.title}</dd>
+            </div>
+
+            <div className="flex">
+                <dt className="font-bold detail flex-initial">Author&nbsp;List:&nbsp;</dt>
+                <dd className="detail flex-initial">{details.authors.join(', ')}</dd>
+            </div>
+
+            <div className="flex">
+                <dt className="font-bold detail flex-initial">Publication&nbsp;Date:&nbsp;</dt>
+                <dd className="detail flex-initial">{details.pubdate}</dd>
+            </div>
+            <Link to="/" className="text-slate-800 hover:text-slate-600 font-medium py-1 mt-3 px-4 rounded bg-slate-200 hover:bg-slate-50 active:bg-slate-400">Back</Link>
+        </dl>
     ) : (
         <div className="card loading min-w-40 flex items-center justify-center font-medium m-4"></div>
     );
