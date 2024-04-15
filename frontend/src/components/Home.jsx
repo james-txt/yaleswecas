@@ -10,7 +10,7 @@ function Home() {
     useEffect(() => {
         async function fetchData() {
             // GET request to the backend to fetch the IDs
-            const data = await getDataFromServer('http://localhost:5000/get_ids');
+            const data = await getDataFromServer(`${import.meta.env.VITE_APIURL}/get_ids`);
             // Update the ids state variable with the fetched IDs
             setIds(data.idlist);
         }

@@ -1,29 +1,45 @@
-import { render} from '@testing-library/react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { render, screen, waitFor } from '@testing-library/react';
+import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import Details from '../src/components/Details';
-import getDataFromServer from '../src/services/helper.jsx'
-import { test, expect } from 'vitest';
+import { expect, test, beforeEach, afterEach } from 'vitest';
+import Pretender from 'pretender';
+
+const DETAILS = {
+    uid: '38616118',
+    title: "Response to: Author's reply to: Effect of adjuvant treatment on survival in 2023 FIGO stage IIC endometrial cancer.",
+    authors: ['Akgor U', 'Ozgul N', 'Ayhan A'],
+    pubdate: '2024 Apr 11'
+};
+
+let server;
+  beforeEach(() => {
+    server = new Pretender();
+  })
+
+  afterEach(() =>{
+    server.shutdown ()
+    server = null 
+  })
 
 test('renders Details component', async () => {
-  render(
-    <Router>
-      <Routes>
-        <Route path="/details/:id" element={<Details />} />
-      </Routes>
-    </Router>
-  );
-    // Define a test URL and options
-    const testUrl = 'http://localhost:5000/get_details'
-    const testOptions = { 
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ target_id: '38616118' }) 
-    }
-  
-    // Call the function with the test URL and options
-    const data = await getDataFromServer(testUrl, testOptions)
-  
-    // Check that the function returned the correct data
-    expect(data).toEqual({ uid: '38616118', title: "Response to: Author's reply to: Effect of adjuvant treatment on survival in 2023 FIGO stage IIC endometrial cancer.", authors: ['Akgor U', 'Ozgul N', 'Ayhan A'], pubdate: '2024 Apr 11' })
+  let requestBody;
+  server.post('/get_details', request => {
+    requestBody = JSON.parse(request.requestBody);
+    return [200, { "Content-Type": "application/json" }, JSON.stringify(DETAILS)];
   });
 
+  render(
+    <MemoryRouter initialEntries={["/123"]}>
+      <Routes>
+        <Route path=":id" element={<Details />} />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  await waitFor(() => {
+    expect(requestBody).toEqual({ target_id:'123', fields: [ 'uid', 'title', 'authors', 'pubdate' ] });
+  })
+
+  const uid = await screen.findByTestId('uid');
+  expect(uid).toBeTruthy();
+});
