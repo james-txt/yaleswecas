@@ -46,7 +46,7 @@ To start the server, run:
 cd backend
 venv\Scripts\activate # Windows
 venv/bin/activate # MacOS/Linux
-python main.py
+py main.py
 ```
 
 The server will start on `http://localhost:5000`.
