@@ -23,7 +23,7 @@ This serves as a guide to understanding the thought process, design, implementat
 cd backend
 venv\Scripts\activate
 cd tests
-py test_main.py
+pytest test_main.py
 ```
 
 7. **Running the application**: Finally, if the script is run directly (not imported as a module), the Flask application is run in debug mode.
@@ -67,5 +67,5 @@ venv\Scripts\activate # Windows
 venv/bin/activate # MacOS/Linux
 py main.py
 cd frontend
-npm run test
+npm test
 ```
