@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-
-// Helper function to make a fetch request
-async function getDataFromServer(url, options = {}) {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    return data;
-}
+import getDataFromServer from '../services/helper.jsx';
 
 function Details() {
     // useParams hook to get the ID from the URL parameters
@@ -31,24 +25,21 @@ function Details() {
     // Return the details if they have been fetched, or a loading message otherwise
     return details ? (
         <dl className="card w-11/12 lg:w-4/5 xlg:w-3/4 flex flex-col items-center justify-center">
-            <div className="flex">
-                <dt className="font-bold detail flex-initial">ID:&nbsp;</dt>
-                <dd className="detail flex-initial">{details.uid}</dd>
+            <div className="flex detail">
+                <dt className="font-bold">ID:&nbsp;</dt>
+                <dd>{details.uid}</dd>
             </div>
-
-            <div className="flex">
-                <dt className="font-bold detail flex-initial">Title:&nbsp;</dt>
-                <dd className="detail flex-initial">{details.title}</dd>
+            <div className="flex detail">
+                <dt className="font-bold">Title:&nbsp;</dt>
+                <dd>{details.title}</dd>
             </div>
-
-            <div className="flex">
-                <dt className="font-bold detail flex-initial">Author&nbsp;List:&nbsp;</dt>
-                <dd className="detail flex-initial">{details.authors.join(', ')}</dd>
+            <div className="flex detail">
+                <dt className="font-bold">Author&nbsp;List:&nbsp;</dt>
+                <dd>{details.authors.join(', ')}</dd>
             </div>
-
-            <div className="flex">
-                <dt className="font-bold detail flex-initial">Publication&nbsp;Date:&nbsp;</dt>
-                <dd className="detail flex-initial">{details.pubdate}</dd>
+            <div className="flex detail">
+                <dt className="font-bold">Publication&nbsp;Date:&nbsp;</dt>
+                <dd>{details.pubdate}</dd>
             </div>
             <Link to="/" className="text-slate-800 hover:text-slate-600 font-medium py-1 mt-3 px-4 rounded bg-slate-200 hover:bg-slate-50 active:bg-slate-400">Back</Link>
         </dl>

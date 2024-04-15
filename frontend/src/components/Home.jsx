@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-// Helper function to make a fetch request
-async function getDataFromServer(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-}
+import getDataFromServer from '../services/helper.jsx';
 
 function Home() {
     // useState hook to create a state variable for the IDs    

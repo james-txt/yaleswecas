@@ -6,6 +6,9 @@ Link to additional detailed [Documentation.md](Documentation.md)
 
 ## Installation
 
+Python 3.12.3 \
+Node.js v20.12.2
+
 Clone the repository and install the dependencies in both the frontend and backend directories.
 
 ```bash
@@ -42,6 +45,7 @@ To start the server, run:
 ```bash
 cd backend
 venv\Scripts\activate # Windows
+venv/bin/activate # MacOS/Linux
 python main.py
 ```
 
@@ -55,7 +59,7 @@ To start the server, run:
 
 ```bash
 cd frontend
-npm start
+npm run dev
 ```
 
 The server will start on `http://localhost:5173/`.

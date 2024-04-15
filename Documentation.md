@@ -9,6 +9,7 @@ This serves as a guide to understanding the thought process, design, implementat
 - `request` is used to handle incoming requests
 - `CORS` is used to handle Cross-Origin Resource Sharing
 - `requests` is used to make HTTP requests to the PubMed API
+- `pytest` is used for testing the application
 
 3. **Defining a helper function**: `get_data_from_api` function is defined to make a GET request to a given URL and return the JSON response. The use of a helper function to interact with the API keeps the code DRY (Don't Repeat Yourself) and improves readability.
 
@@ -16,7 +17,14 @@ This serves as a guide to understanding the thought process, design, implementat
 
 5. **Defining the `/get_details` route**: A POST request with a JSON body containing a `target_id`. It makes a GET request to the PubMed API to fetch the details of the publication with the given ID. The details are extracted from the API response and returned in a dictionary.
 
-6. **Pytest**:`test_main.py` contains tests for the Flask application. The tests check the status code and response data for the `/get_ids` and `/get_details` routes.
+6. **Pytest**:`test_main.py` contains tests for the Flask application. The tests check the status code and response data for the `/get_ids` and `/get_details` routes. The tests are ran using the following commands:
+
+```bash
+cd backend
+venv\Scripts\activate
+cd tests
+py test_main.py
+```
 
 7. **Running the application**: Finally, if the script is run directly (not imported as a module), the Flask application is run in debug mode.
 
@@ -44,3 +52,20 @@ Sets up the routing for the application. It uses the `BrowserRouter` component f
 - `useEffect` and `useState` hooks from React to fetch the data and store it in the `details` state variable.
 - Renders the details for the ID if they have been fetched, or a loading message otherwise.
 - Renders a `Link` component that navigates back to the home page.
+
+### Vitest application
+
+- `Home` component test checks if component renders correctly.
+- `Details` component test checks if component renders correctly and if it fetches the correct data from the server.
+- `getDataFromServer` function test checks if the function fetches the correct data from the server.
+
+The tests are ran using the following commands:
+
+```bash
+cd backend
+venv\Scripts\activate # Windows
+venv/bin/activate # MacOS/Linux
+py main.py
+cd frontend
+npm run test
+```
