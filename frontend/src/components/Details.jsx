@@ -18,7 +18,6 @@ function Details() {
                 body: JSON.stringify({ target_id: id, fields: ['uid', 'title', 'authors', 'pubdate'] })
             });
             setDetails(data);
-            console.log ('data', data)
         }
         fetchData();
     }, [id]);

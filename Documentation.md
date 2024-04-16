@@ -53,11 +53,30 @@ Sets up the routing for the application. It uses the `BrowserRouter` component f
 - Renders the details for the ID if they have been fetched, or a loading message otherwise.
 - Renders a `Link` component that navigates back to the home page.
 
-### Vitest application
+### Vitest Components
 
-- `Home` component test checks if component renders correctly.
-- `Details` component test checks if component renders correctly and if it fetches the correct data from the server.
-- `helper` service test checks if function `getDataFromServer` fetches the correct data from the server.
+Using Vitest for testing our components and Pretender to mock HTTP requests.
+
+1. **Setup**: Before each test, we create a new Pretender server. After each test, we shut down the server.
+
+2. **Mocking the server response**: 
+- `Home` uses Pretender to mock the server's response to a `GET` request to `/get_ids`, the response includes a list of IDs.
+- `Details` uses Pretender to mock the server's response to a `POST` request to `/get_details`, the response includes the details for a specific ID.
+
+3. **Rendering the component**: 
+- Render the `Home` component inside a `MemoryRouter`.
+- Render the `Details` component inside a `MemoryRouter` with the initial route set to `/123`.
+
+4. **Checking the fetched data**: 
+- `Home` We check that the data fetched from `/get_ids` is correct.
+- `Details` We check that the request body of the `POST` request to `/get_details` is correct.
+
+5. **Checking the rendered output**: We use `findByTestId` from `@testing-library/react` to find the element:
+- `Home`with the test ID `'idlist'`.
+- `Details with the test ID `'uid'`. 
+
+6. **Service Helper Function Test**:
+- `helper` We call `getDataFromServer` with a test URL and options. Then check that the data fetched from the server is correct.
 
 The tests are ran using the following commands:
 

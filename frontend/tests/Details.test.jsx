@@ -21,7 +21,7 @@ let server;
     server = null 
   })
 
-test('renders Details component', async () => {
+test('renders Details component and fetches data from uid', async () => {
   let requestBody;
   server.post('/get_details', request => {
     requestBody = JSON.parse(request.requestBody);
