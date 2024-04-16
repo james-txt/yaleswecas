@@ -24,7 +24,7 @@ def get_ids():
 # It makes a GET request to the PubMed API to fetch the details of the publication with the given ID
 @main.route('/get_details', methods=['POST'])
 def get_details():
-    target_id = request.json.get('target_id')
+    target_id = request.json.get('target_id') if request.json else None
     data = get_data_from_api(f'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id={target_id}&retmode=json')
     result = data['result'][target_id]
     return {
