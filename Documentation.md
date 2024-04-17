@@ -30,6 +30,8 @@ pytest test_main.py
 
 ## React Frontend Server for PubMed Data
 
+The frontend server is built with Vite React. For testing, it utilizes Vitest and Pretender to mock HTTP requests. For styling, it uses Tailwind CSS for highly customizatible styling.
+
 ### App Component
 
 Sets up the routing for the application. It uses the `BrowserRouter` component from `react-router-dom` to enable routing. There are two routes defined:
