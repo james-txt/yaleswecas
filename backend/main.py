@@ -1,6 +1,7 @@
 from flask import Flask, request # type: ignore
 from flask_cors import CORS # type: ignore
 import requests # type: ignore
+port = 5000
 
 main = Flask(__name__)
 CORS(main)

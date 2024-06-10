@@ -61,6 +61,3 @@ To start the server, run:
 cd frontend
 npm run dev
 ```
-
-The server will start on `http://localhost:5173/`.
-
